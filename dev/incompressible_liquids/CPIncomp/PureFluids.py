@@ -707,3 +707,28 @@ class DynaleneSF(PureData):
         self.description = "Dynalene SF"
         self.reference = "Dynalene, Inc."
         self.reshapeAll()
+
+
+
+class MoltenSalt(PureData):
+    """
+    Molten salt 
+    """
+
+    def __init__(self):
+        PureData.__init__(self)
+        self.density.source = self.density.SOURCE_DATA
+        self.viscosity.source = self.viscosity.SOURCE_DATA
+        self.specific_heat.source = self.specific_heat.SOURCE_DATA
+        self.conductivity.source = self.conductivity.SOURCE_DATA
+        self.temperature.data = np.array([533.1600, 560.9389, 588.7167, 616.4945, 644.2723, 672.0501, 699.8278, 727.6056, 755.3834, 783.1600, 810.9390, 838.7167, 866.4945])
+        self.density.data = np.array([1.9238e+03, 1.9059e+03, 1.8881e+03, 1.8703e+03, 1.8525e+03, 1.8348e+03, 1.8170e+03, 1.7992e+03, 1.7814e+03, 1.7636e+03, 1.7459e+03])
+        self.specific_heat.data = np.array([1.4895e+03, 1.4979e+03, 1.5021e+03, 1.5062e+03, 1.5104e+03, 1.5146e+03, 1.5188e+03, 1.5230e+03, 1.5313e+03, 1.5355e+03, 1.5397e+03, 1.5439e+03, 1.5481e+03])
+        self.conductivity.data = np.array([4.9228e-01, 4.9771e-01, 5.0313e-01, 5.0855e-01, 5.1398e-01, 5.1940e-01, 5.2482e-01, 5.3025e-01, 5.3567e-01, 5.4109e-01, 5.4652e-01, 5.5194e-01, 5.5736e-01])
+        self.viscosity.data = np.array([4.3430e-03, 3.5582e-03, 2.9290e-03, 2.4365e-03, 2.0617e-03, 1.7857e-03, 1.5895e-03, 1.4541e-03, 1.3606e-03, 1.2900e-03, 1.2235e-03, 1.1419e-03, 1.0264e-03])
+        self.Tmin = np.min(self.temperature.data)
+        self.Tmax = np.max(self.temperature.data)
+        self.name = "Molten Salt"
+        self.description = "Molten Salt"
+        self.reference = ""
+        self.reshapeAll()
